@@ -1,0 +1,13 @@
+# Server scripts (not needed in production)
+serve.ps1
+start-preview.bat
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
