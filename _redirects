@@ -1,0 +1,4 @@
+# Netlify Redirects
+# 301 permanent redirect: old On-Page SEO URL → new Blogs URL
+/on-page-seo/   /blogs/   301
+/on-page-seo    /blogs/   301
