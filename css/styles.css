@@ -2569,3 +2569,21 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.82rem;
   }
 }
+
+/* Instagram & WhatsApp social icon colors */
+.social-icon-btn.social-ig {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff;
+}
+.social-icon-btn.social-ig:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+.social-icon-btn.social-wa {
+  background: #25D366;
+  color: #fff;
+}
+.social-icon-btn.social-wa:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+}
