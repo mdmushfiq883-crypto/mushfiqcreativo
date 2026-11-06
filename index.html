@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -705,26 +705,29 @@
             </p>
           </div>
 
-          <form id="contactForm">
+          <form id="contactForm" action="https://formsubmit.co/mdmushfiq883@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="New SEO Inquiry - MD Mushfiqur Rahman Robaet">
             <div class="contact-form-grid">
               <div class="form-group">
                 <label for="fullName" class="form-label">Your Name *</label>
-                <input type="text" id="fullName" class="form-input" placeholder="e.g. Rahim Chowdhury" required>
+                <input type="text" id="fullName" name="name" class="form-input" placeholder="e.g. Rahim Chowdhury" required>
               </div>
 
               <div class="form-group">
                 <label for="emailAddr" class="form-label">Email Address *</label>
-                <input type="email" id="emailAddr" class="form-input" placeholder="e.g. rahim@example.com" required>
+                <input type="email" id="emailAddr" name="email" class="form-input" placeholder="e.g. rahim@example.com" required>
               </div>
 
               <div class="form-group">
                 <label for="phoneNumber" class="form-label">Phone / WhatsApp</label>
-                <input type="tel" id="phoneNumber" class="form-input" placeholder="+880 1XXXXXXXXX">
+                <input type="tel" id="phoneNumber" name="phone" class="form-input" placeholder="+880 1XXXXXXXXX">
               </div>
 
               <div class="form-group">
                 <label for="serviceInterest" class="form-label">Service Needed</label>
-                <select id="serviceInterest" class="form-input">
+                <select id="serviceInterest" name="service" class="form-input">
                   <option value="seo-full">Complete SEO Strategy &amp; Ranking</option>
                   <option value="on-page">Dedicated On-Page SEO Optimization</option>
                   <option value="local-seo">Local SEO &amp; Google Maps in Patiya</option>
@@ -735,7 +738,7 @@
 
               <div class="form-group form-group-full">
                 <label for="projectDetails" class="form-label">Project Details &amp; Website URL *</label>
-                <textarea id="projectDetails" class="form-textarea" rows="4" placeholder="Tell me about your business, current website or goals..." required></textarea>
+                <textarea id="projectDetails" name="message" class="form-textarea" rows="4" placeholder="Tell me about your business, current website or goals..." required></textarea>
               </div>
 
               <div class="form-group form-group-full" style="text-align: center; margin-top: 10px;">
