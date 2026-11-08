@@ -8,13 +8,9 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/cover.jpg</image:loc>
-      <image:title>MD Mushfiqur Rahman Robaet - Best SEO Expert in Patiya in 2026</image:title>
-      <image:caption>Cover photo of MD Mushfiqur Rahman Robaet looking over the scenic mountain landscape</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/profile.jpg</image:loc>
-      <image:title>MD Mushfiqur Rahman Robaet Profile Avatar</image:title>
-      <image:caption>Verified SEO Specialist and Full-Stack Web Developer in Patiya, Chattogram</image:caption>
     </image:image>
   </url>
   <url>
@@ -24,8 +20,6 @@
     <priority>0.90</priority>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/khaja-agro-preview.png</image:loc>
-      <image:title>Khaja Agro Farm Website Development and Local SEO Case Study</image:title>
-      <image:caption>Live website development and local Google search optimization for Khaja Agro Farm in Patiya</image:caption>
     </image:image>
   </url>
   <url>
@@ -41,7 +35,6 @@
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/cover.jpg</image:loc>
-      <image:title>Why SEO Is Important? Benefits of SEO for Business in 2026</image:title>
     </image:image>
   </url>
   <url>
@@ -51,7 +44,6 @@
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/cover.jpg</image:loc>
-      <image:title>What Is Technical SEO? A Complete Beginner's Guide for 2026</image:title>
     </image:image>
   </url>
   <url>
@@ -61,7 +53,6 @@
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://mushicreativo.netlify.app/assets/cover.jpg</image:loc>
-      <image:title>Local SEO Guide for Small Businesses in Bangladesh</image:title>
     </image:image>
   </url>
 </urlset>

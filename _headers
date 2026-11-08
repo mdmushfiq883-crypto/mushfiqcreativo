@@ -35,3 +35,15 @@
 
 /blogs/*
   Cache-Control: public, max-age=0, must-revalidate
+
+# 5. Search Engine Discovery Endpoints (Sitemap & Robots)
+# Explicit UTF-8 MIME types and permissive crawler indexing headers
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: all
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: all
