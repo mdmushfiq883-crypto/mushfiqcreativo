@@ -1,0 +1,56 @@
+name: "SEO & Quality Assurance CI"
+
+on:
+  push:
+    branches: [ "main", "feature/**" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  seo-audit:
+    name: "Automated SEO & Link Verification"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Run Automated SEO Audit Suite"
+        shell: pwsh
+        run: |
+          ./scripts/seo-audit.ps1
+
+  lighthouse-ci:
+    name: "Lighthouse Performance & SEO Audit"
+    runs-on: ubuntu-latest
+    needs: seo-audit
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "Install Lighthouse CI & Static Server"
+        run: |
+          npm install -g @lhci/cli http-server
+
+      - name: "Run Lighthouse Mobile & Desktop Audits"
+        run: |
+          # Start background static server
+          http-server . -p 8080 &
+          sleep 3
+
+          # Run LHCI across core pages
+          lhci collect \
+            --url="http://localhost:8080/" \
+            --url="http://localhost:8080/blogs/" \
+            --url="http://localhost:8080/portfolio/" \
+            --numberOfRuns=1 \
+            --settings.chromeFlags="--headless=new --no-sandbox"
+
+          # Assert SEO and accessibility thresholds
+          lhci assert --assertions.categories:seo="error:>=0.9" --assertions.categories:accessibility="error:>=0.85"

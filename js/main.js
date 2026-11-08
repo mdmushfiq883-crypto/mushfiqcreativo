@@ -184,12 +184,6 @@ function initContactForm() {
 
     const waUrl = `https://wa.me/8801970271398?text=${encodeURIComponent(waText)}`;
 
-    // Track Form Submit Conversion
-    trackAnalyticsEvent('contact_form_submit', {
-      form_name: 'contact_section',
-      service: serviceText
-    });
-
     // Try to open WhatsApp in a new tab immediately within user gesture
     try {
       window.open(waUrl, '_blank');
@@ -220,7 +214,16 @@ function initContactForm() {
       },
       body: JSON.stringify(emailPayload)
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        trackAnalyticsEvent('contact_form_submit', {
+          form_name: 'contact_section',
+          service: serviceText,
+          status: 'success'
+        });
+      }
+      return response.json();
+    })
     .catch(err => {
       console.warn('Background email dispatch:', err);
     })
