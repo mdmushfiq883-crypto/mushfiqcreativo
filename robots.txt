@@ -8,5 +8,5 @@ Disallow: /_headers
 Disallow: /_redirects
 
 # Canonical XML Sitemaps
-Sitemap: https://robaet.dev/sitemap.xml
 Sitemap: https://mushicreativo.netlify.app/sitemap.xml
+
