@@ -1,4 +1,7 @@
-# Netlify Redirects
-# 301 permanent redirect: old On-Page SEO URL → new Blogs URL
-/on-page-seo/   /blogs/   301
-/on-page-seo    /blogs/   301
+# Netlify Redirects & Clean Routing
+# 1. 301 Permanent Redirect: Legacy On-Page SEO landing page → Modern Blogs Hub
+/on-page-seo/   /blogs/   301!
+/on-page-seo    /blogs/   301!
+
+# 2. Custom 404 routing
+/*   /404.html   404

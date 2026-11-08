@@ -1,0 +1,35 @@
+# Netlify HTTP Security & Performance Headers
+# MD Mushfiqur Rahman Robaet - Mushi Creativo
+
+# 1. Global Security Headers for all routes
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# 2. Immutable Cache-Control for Static Assets (Images, Fonts, SVG)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 3. Cache-Control for Compiled CSS and JavaScript
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 4. Freshness for HTML Documents (Immediate revalidation for SEO updates)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/portfolio/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/blogs/*
+  Cache-Control: public, max-age=0, must-revalidate

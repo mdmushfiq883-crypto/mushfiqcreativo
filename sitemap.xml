@@ -3,51 +3,65 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://robaet.dev/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://robaet.dev/assets/cover.jpg</image:loc>
-      <image:title>MD Mushfiqur Rahman Robaet - Best seo expert in patiya in 2026</image:title>
-      <image:caption>Cover photo of MD Mushfiqur Rahman Robaet looking over the mountain landscape</image:caption>
+      <image:title>MD Mushfiqur Rahman Robaet - Best SEO Expert in Patiya in 2026</image:title>
+      <image:caption>Cover photo of MD Mushfiqur Rahman Robaet looking over the scenic mountain landscape</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://robaet.dev/assets/profile.jpg</image:loc>
       <image:title>MD Mushfiqur Rahman Robaet Profile Avatar</image:title>
+      <image:caption>Verified SEO Specialist and Full-Stack Web Developer in Patiya, Chattogram</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://robaet.dev/portfolio/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
     <image:image>
       <image:loc>https://robaet.dev/assets/khaja-agro-preview.png</image:loc>
-      <image:title>Khaja Agro Farm Website Development and Local SEO</image:title>
+      <image:title>Khaja Agro Farm Website Development and Local SEO Case Study</image:title>
+      <image:caption>Live website development and local Google search optimization for Khaja Agro Farm in Patiya</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://robaet.dev/blogs/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://robaet.dev/blogs/why-seo-is-important/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://robaet.dev/assets/cover.jpg</image:loc>
+      <image:title>Why SEO Is Important? Benefits of SEO for Business in 2026</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://robaet.dev/blogs/what-is-technical-seo/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://robaet.dev/assets/cover.jpg</image:loc>
+      <image:title>What Is Technical SEO? A Complete Beginner's Guide for 2026</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://robaet.dev/blogs/local-seo-guide-bangladesh/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://robaet.dev/assets/cover.jpg</image:loc>
+      <image:title>Local SEO Guide for Small Businesses in Bangladesh</image:title>
+    </image:image>
   </url>
 </urlset>

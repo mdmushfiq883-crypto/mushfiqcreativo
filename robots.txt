@@ -1,5 +1,12 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Disallow internal build/utility files
+Disallow: /serve.ps1
+Disallow: /start-preview.bat
+Disallow: /_headers
+Disallow: /_redirects
+
+# Canonical XML Sitemaps
 Sitemap: https://robaet.dev/sitemap.xml
+Sitemap: https://mushicreativo.netlify.app/sitemap.xml
