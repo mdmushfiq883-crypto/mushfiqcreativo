@@ -3,6 +3,14 @@
  * Interactive Functionality & Accessibility Script
  */
 
+/**
+ * Global Application Configuration
+ * To activate live Google Analytics 4 tracking across the entire site,
+ * provide your G-XXXXXXXXXX Measurement ID here.
+ */
+const APP_CONFIG = {
+  GA_MEASUREMENT_ID: window.GA_MEASUREMENT_ID || '' // Set to 'G-XXXXXXXXXX' upon setup
+};
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileNav();
@@ -273,7 +281,7 @@ function initContactForm() {
  * - portfolio_outbound_click
  */
 function initAnalyticsTracking() {
-  const GA_ID = window.GA_MEASUREMENT_ID || null;
+  const GA_ID = APP_CONFIG.GA_MEASUREMENT_ID || window.GA_MEASUREMENT_ID || null;
 
   // Dynamically load Google Analytics tag if a valid Measurement ID is configured
   if (GA_ID && /^G-[A-Za-z0-9]+$/.test(GA_ID)) {
