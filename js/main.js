@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initSmoothScroll();
   initContactForm();
+  initAnalyticsTracking();
 });
 
 /**
@@ -186,6 +187,9 @@ function initContactForm() {
     // Try to open WhatsApp in a new tab immediately within user gesture
     try {
       window.open(waUrl, '_blank');
+      trackAnalyticsEvent('whatsapp_click', {
+        source: 'contact_form_auto_redirect'
+      });
     } catch (err) {
       console.warn('Popup blocked by browser:', err);
     }
@@ -210,7 +214,16 @@ function initContactForm() {
       },
       body: JSON.stringify(emailPayload)
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        trackAnalyticsEvent('contact_form_submit', {
+          form_name: 'contact_section',
+          service: serviceText,
+          status: 'success'
+        });
+      }
+      return response.json();
+    })
     .catch(err => {
       console.warn('Background email dispatch:', err);
     })
@@ -248,3 +261,100 @@ function initContactForm() {
     });
   });
 }
+
+/**
+ * 6. Google Analytics 4 (GA4) Architecture & Conversion Event Tracking
+ * Supports dynamic ID injection via window.GA_MEASUREMENT_ID without breaking offline/dev mode.
+ * Tracks:
+ * - whatsapp_click
+ * - email_click
+ * - phone_click
+ * - contact_form_submit
+ * - portfolio_outbound_click
+ */
+function initAnalyticsTracking() {
+  const GA_ID = window.GA_MEASUREMENT_ID || null;
+
+  // Dynamically load Google Analytics tag if a valid Measurement ID is configured
+  if (GA_ID && /^G-[A-Za-z0-9]+$/.test(GA_ID)) {
+    if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_ID}"]`)) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID, {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+    }
+  }
+
+  // Delegated click listener for interactive conversion elements
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+
+    // 1. WhatsApp click tracking
+    if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+      trackAnalyticsEvent('whatsapp_click', {
+        link_url: href,
+        link_text: link.innerText ? link.innerText.trim() : 'whatsapp_button',
+        page_location: window.location.pathname
+      });
+      return;
+    }
+
+    // 2. Direct email click tracking
+    if (href.startsWith('mailto:')) {
+      trackAnalyticsEvent('email_click', {
+        email_address: href.replace('mailto:', ''),
+        link_text: link.innerText ? link.innerText.trim() : 'email_link',
+        page_location: window.location.pathname
+      });
+      return;
+    }
+
+    // 3. Direct phone click tracking
+    if (href.startsWith('tel:')) {
+      trackAnalyticsEvent('phone_click', {
+        phone_number: href.replace('tel:', ''),
+        page_location: window.location.pathname
+      });
+      return;
+    }
+
+    // 4. Portfolio external outbound click tracking
+    if (link.classList.contains('portfolio-live-link') || (href.startsWith('http') && !href.includes(window.location.hostname))) {
+      trackAnalyticsEvent('portfolio_outbound_click', {
+        outbound_url: href,
+        link_text: link.innerText ? link.innerText.trim() : 'outbound_link',
+        page_location: window.location.pathname
+      });
+    }
+  }, { passive: true });
+}
+
+/**
+ * Global helper to dispatch analytics events cleanly across dev and production
+ */
+function trackAnalyticsEvent(eventName, eventParams = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, eventParams);
+    }
+    // Debug logging for local development
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.log(`[GA4 Event] ${eventName}:`, eventParams);
+    }
+  } catch (err) {
+    console.warn('Analytics event dispatch error:', err);
+  }
+}
+
