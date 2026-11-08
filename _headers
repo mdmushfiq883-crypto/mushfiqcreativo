@@ -10,16 +10,18 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-# 2. Immutable Cache-Control for Static Assets (Images, Fonts, SVG)
+# 2. Cache-Control for Static Media Assets (Images, SVG, Favicon)
+# Unversioned assets use 7-day edge cache with 30-day stale-while-revalidate
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
 
-# 3. Cache-Control for Compiled CSS and JavaScript
+# 3. Cache-Control for Unversioned CSS and JavaScript
+# Allows 24-hour browser caching with 7-day stale-while-revalidate for fast revalidation
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 # 4. Freshness for HTML Documents (Immediate revalidation for SEO updates)
 /*.html
