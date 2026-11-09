@@ -9,7 +9,7 @@
  * provide your G-XXXXXXXXXX Measurement ID here.
  */
 const APP_CONFIG = {
-  GA_MEASUREMENT_ID: window.GA_MEASUREMENT_ID || '' // Set to 'G-XXXXXXXXXX' upon setup
+  GA_MEASUREMENT_ID: window.GA_MEASUREMENT_ID || 'G-8H94C9NL4G'
 };
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
